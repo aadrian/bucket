@@ -7,10 +7,47 @@ repositories {
 
 // In this section we declare the plug-ins we wish to download
 dependencies {
-    // Announce Plugin - https://github.com/gitbucket-plugins/gitbucket-announce-plugin
-    compile 'com.github.gitbucket-plugins:gitbucket-announce-plugin:1.6.0'//, transitive: false
+    // 1. Announce Plugin - https://github.com/gitbucket-plugins/gitbucket-announce-plugin
+    compile 'com.github.gitbucket-plugins:gitbucket-announce-plugin:1.6.0' // jitpack tag version
+    // compile 'fr.brouillard.gitbucket:gitbucket-announce-plugin:1.6.0' // release version
 
-    compile 'com.github.gitbucket-plugins:gitbucket-h2-backup-plugin:1.4.0'//, transitive: false
+    // 2. H2 Database Backup Plugin - https://github.com/gitbucket-plugins/gitbucket-h2-backup-plugin
+    // compile 'com.github.gitbucket-plugins:gitbucket-h2-backup-plugin:1.4.0' // jitpack tag version
+    compile 'com.github.aadrian:gitbucket-h2-backup-plugin:patch_1-SNAPSHOT' // // jitpack PR version
+    // compile 'fr.brouillard.gitbucket:gitbucket-h2-backup-plugin:1.4.0' // release version
+
+    // 3. Desktop notification - https://github.com/yoshiyoshifujii/gitbucket-desktopnotify-plugin
+    compile 'com.github.yoshiyoshifujii:gitbucket-desktopnotify-plugin:4.10.0' // jitpack tag version
+    // compile 'me.huzi.gitbucket:gitbucket-desktopnotify-plugin:4.10.0' // release version
+
+    // 4. Gist plugin - https://github.com/gitbucket/gitbucket-gist-plugin
+    compile 'io.github.gitbucket:gitbucket-gist-plugin:4.8.0' // release version (also a correct jitpack tag version)
+
+    // 5. Commits graph plugin - https://github.com/yoshiyoshifujii/gitbucket-commitgraphs-plugin
+    // compile 'me.huzi.gitbucket:gitbucket-commitgraphs-plugin:4.12.0' // release version
+    compile 'com.github.yoshiyoshifujii:gitbucket-commitgraphs-plugin:4.12.0' // jitpack tag version
+
+    // 6. Asciidoc gitbucket plugin - https://github.com/asciidoctor/gitbucket-asciidoctor-plugin
+    //  release version ?? naming tries to be to clever
+    // compile 'com.github.asciidoctor:gitbucket-asciidoctor-plugin:1.0.2' // jitpack tag version
+
+    // 7. Gitbucket Pages plugin - https://github.com/gitbucket/gitbucket-pages-plugin
+    // compile 'gitbucket:pages-plugin:1.1'// release version
+    // compile 'com.github.gitbucket:gitbucket-pages-plugin:v1.1' // jitpack tag version
+    compile 'com.github.aadrian:gitbucket-pages-plugin:patch_2-SNAPSHOT' // jitpack PR version
+
+    // 8. Gitbucket network plugin- https://github.com/mrkm4ntr/gitbucket-network-plugin
+    // compile 'com.github.mrkm4ntr:gitbucket-network-plugin:1.4' // release version
+    compile 'com.github.mrkm4ntr:gitbucket-network-plugin:1.4' // jitpack tag version
+
+    // 9. Explorer plugin - https://github.com/tomoki1207/gitbucket-explorer-plugin
+    // compile 'io.github.gitbucket:gitbucket-explorer-plugin:3.0.0' // release version
+    // compile 'com.github.tomoki1207:gitbucket-explorer-plugin:3.0.0' // jitpack tag version
+    compile 'com.github.aadrian:gitbucket-explorer-plugin:patch_1-SNAPSHOT' // jitpack PR version
+
+    // 10. PlantUML plugin - https://github.com/nus/gitbucket-plantuml-plugin
+    // compile 'com.github.aadrian:gitbucket-plantuml-plugin:lib_updates-SNAPSHOT' // jitpack PR version -> this one doesn't seem to build with JitPack
+
 }
 
 configurations {

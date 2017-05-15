@@ -5,7 +5,7 @@ This *"tool"* is using Gradle to download all the existing/required/configured [
 directory suitable for installation/update.
 
 ### Usage
-Prerequisites is Gradle >= 3.5 *(e.g. by installing using [SDKMAN](http://sdkman.io/) )*.
+Prerequisites is Gradle >= 3.5 *(e.g. by installing using [SDKMAN](http://sdkman.io/))*.
 
 Run ```%> gradle getAll``` to download all configured GitBucket plug-ins.
 
@@ -17,7 +17,7 @@ makeZip - Creates a ZIP of all the configured GitBucket plug-ins!
 listAll - Lists all the configured GitBucket plug-ins!
 ```
 
-If you don't need all the plug-ins or different versions, see in [build.gradle](build.gradle) the ```dependencies``` section.
+If you don't need all the plug-ins, or what different versions, see in [build.gradle](build.gradle) the ```dependencies``` section for changes.
 
 ### Why
  - there are already quite a few nice plug-ins for GitBucket, but no easy way to get them.
