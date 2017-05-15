@@ -1,0 +1,52 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()  // 'jcenter' repo for resolving published plug-ins.
+	maven { url 'https://jitpack.io' } // 'jitpack' repo for unpublished plug-ins.
+}
+
+// In this section we declare the plug-ins we wish to download
+dependencies {
+    // Announce Plugin - https://github.com/gitbucket-plugins/gitbucket-announce-plugin
+    compile 'com.github.gitbucket-plugins:gitbucket-announce-plugin:1.6.0'//, transitive: false
+
+    compile 'com.github.gitbucket-plugins:gitbucket-h2-backup-plugin:1.4.0'//, transitive: false
+}
+
+configurations {
+    compile {
+        transitive = false // we don't fetch the dependencies of the plug-ins
+    }
+}
+
+def zipName = 'gitbucket-plugins.zip'
+def pluginsDir = 'plugins/'
+
+clean {
+    description 'Cleans all the previously downloaded GitBucket plug-ins!'
+    // delete 'plugins/'  // clean the 'plugins/' directory too
+    delete pluginsDir  // clean the 'plugins/' directory too
+    delete zipName
+}
+
+task getAll(type: Copy, dependsOn: 'clean') {
+    description  'Downloads all the configured GitBucket plug-ins!'
+    from configurations.compile
+    into pluginsDir
+}
+
+task makeZip(type: Zip, dependsOn: 'getAll') {
+    description 'Creates a ZIP of all the configured GitBucket plug-ins!'
+    from '/'
+    include '/plugins/*.jar'
+    // archiveName 'gitbucket-plugins.zip'
+    archiveName zipName
+    destinationDir(file('./'))
+}
+
+task listAll {
+    description 'Lists all the configured GitBucket plug-ins!'
+    doLast {
+        configurations.compile.each { File file -> println './plugins/'+file.name }
+    }
+}

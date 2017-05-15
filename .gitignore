@@ -12,3 +12,12 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# /plugins directory - this is only to check if everything works
+/plugins
