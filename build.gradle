@@ -46,6 +46,7 @@ dependencies {
     compile 'com.github.aadrian:gitbucket-explorer-plugin:patch_1-SNAPSHOT' // jitpack PR version
 
     // 10. PlantUML plugin - https://github.com/nus/gitbucket-plantuml-plugin
+    // compile 'com.github.nus:gitbucket-plantuml-plugin:v1.2.0' // jitpack tag version  -> this doesn't work: JitPack still seems to have problems
     // compile 'com.github.aadrian:gitbucket-plantuml-plugin:lib_updates-SNAPSHOT' // jitpack PR version -> this one doesn't seem to build with JitPack
 
 }
