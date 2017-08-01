@@ -15,7 +15,7 @@ Group=gitbucket
 
 ; Start with the shell
 ;ExecStart=/opt/gitbucket/gitbucket.sh
-ExecStart=/usr/bin/java -jar /opt/gitbucket/gitbucket.war --prefix=gitbucket --port=7777 --gitbucket.home=/opt/gitbucket/gb_data --temp.dir=/opt/gitbucket/gb_temp
+ExecStart=/usr/bin/java -jar /opt/gitbucket/gitbucket.war --prefix=gitbucket --port=8080 --gitbucket.home=/opt/gitbucket/gb_data --temp.dir=/opt/gitbucket/gb_temp
 
 ExecReload=/bin/kill -USR1 $MAINPID
 
