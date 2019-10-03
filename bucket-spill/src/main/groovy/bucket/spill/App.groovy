@@ -9,6 +9,24 @@ class App {
     }
 
     static void main(String[] args) {
-        println new App().greeting
+        spill()
+    }
+
+    def static spill() {
+        println "---------------->App.spill START!"
+        cmd("pwd")
+        cmd("mkdir repos")
+        // cmd("cd repos")
+        // git("git clone https://github.com/aadrian/selenium-example.git")
+        println "---------------->App.spill END!"
+    }
+
+
+    def static cmd(String cmd) {
+        def sout = new StringBuilder(), serr = new StringBuilder()
+        def proc = cmd.execute()
+        proc.consumeProcessOutput(sout, serr)
+        proc.waitForOrKill(1000)
+        println "out> $sout err> $serr"
     }
 }
