@@ -13,6 +13,24 @@ import picocli.CommandLine
 class App implements Runnable {
     private final static Logger LOG = LoggerFactory.getLogger(App.class);
 
+    @CommandLine.Option(names = [ "-c", "--conf" ], defaultValue = "./conf/conf.yml", description = 'configuration file (default: ${DEFAULT-VALUE})')
+    File conf
+
+    /**
+     * Available actions:
+     *  <ul>
+     *     <li>spill - check out all repos a user has</li>
+     *     <li>list-groups - lists all groups a user has</li>
+     *     <li>list-repos - lists all repos a user has</li>
+     *     <li>list-issues - lists all issues a user is allowed to see</li>
+     *  </ul>
+     */
+    @CommandLine.Option(names = ["-a", "--action"],
+            required = true,
+            completionCandidates = ActionCandidates.class,
+            description = 'Action to execute: ${COMPLETION-CANDIDATES}',
+            showDefaultValue = CommandLine.Help.Visibility.ALWAYS)
+    private String action = "spill"
 
     static void main(String[] args) {
         AnsiConsole.systemInstall()
@@ -43,4 +61,19 @@ class App implements Runnable {
         spill()
         LOG.info("App.run -> END")
     }
+
+    /**
+     * Defined candidates for the action.
+     */
+    static class ActionCandidates extends ArrayList<String> {
+        public ActionCandidates() {
+            super(Arrays.asList(
+                    "spill",
+                    "list-groups",
+                    "list-repos",
+                    "list-issues"
+            ));
+        }
+    }
+
 }
