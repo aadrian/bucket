@@ -10,3 +10,6 @@ build
 *.ipr
 *.iws
 out/
+
+# Project specific
+*_conf.yml

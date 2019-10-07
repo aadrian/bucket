@@ -14,10 +14,6 @@ class App implements Runnable {
     private final static Logger LOG = LoggerFactory.getLogger(App.class);
 
 
-    String getGreeting() {
-        return 'Hello world.'
-    }
-
     static void main(String[] args) {
         AnsiConsole.systemInstall()
         CommandLine.run(new App(), args)
