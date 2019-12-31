@@ -15,7 +15,7 @@ repositories {
 dependencies {
     implementation 'org.codehaus.groovy:groovy-all:2.5.8'
 
-    implementation 'info.picocli:picocli:4.0.4' // CLI handling library
+    implementation 'info.picocli:picocli:4.1.4' // CLI handling library
     implementation 'org.fusesource.jansi:jansi:1.18'
     implementation 'org.yaml:snakeyaml:1.25' // YML Config file library
 
